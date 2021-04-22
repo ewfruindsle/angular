@@ -1,0 +1,8 @@
+<h5 class="center-align">List of cities</h5>
+<app-new-city></app-new-city>
+<app-city
+  *ngFor="let currentCity of cities; let i = index"
+  [city]="currentCity"
+  [cityIndex]="i"
+>
+</app-city>

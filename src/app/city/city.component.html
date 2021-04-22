@@ -1,0 +1,56 @@
+<div class="row valign-wrapper">
+  <div class="col m3 offset-m3 s6 center-align">
+    <h5>{{ city.cityName }}</h5>
+  </div>
+  <div class="col m3 s6 center-align">
+    <a
+      class="btn-floating waves-effect waves-light blue"
+      (click)="showInfo = !showInfo"
+    >
+      <i *ngIf="showInfo" class="material-icons"> keyboard_arrow_up </i>
+      <i *ngIf="!showInfo" class="material-icons"> keyboard_arrow_down </i>
+    </a>
+    <a
+      [routerLink]="'/sights/' + city.cityName"
+      class="btn-floating waves-effect waves-light blue-grey"
+    >
+      <i class="material-icons"> view_headline </i>
+    </a>
+  </div>
+</div>
+
+<div class="info" *ngIf="showInfo">
+  <div class="input-field">
+    <input
+      id="cityName"
+      [(ngModel)]="city.cityName"
+      type="text"
+      class="validate"
+    />
+    <label for="cityName" class="active">City</label>
+  </div>
+  <div class="input-field">
+    <input
+      id="country"
+      [(ngModel)]="city.country"
+      type="text"
+      class="validate"
+    />
+    <label for="country" class="active">Country</label>
+  </div>
+  <div class="input-field">
+    <input
+      id="population"
+      [(ngModel)]="city.population"
+      type="text"
+      class="validate"
+    />
+    <label for="population" class="active">Population</label>
+  </div>
+  <a
+    class="rem-row btn-floating waves-effect waves-light red"
+    (click)="deleteCity()"
+  >
+    <i class="material-icons">delete</i>
+  </a>
+</div>
